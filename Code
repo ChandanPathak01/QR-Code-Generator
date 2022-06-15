@@ -1,0 +1,14 @@
+import qrcode
+import image
+qr = qrcode.QRCode(
+    version = 10, #10 means the version of the qr code high the number bigger the code image and complicated pictures
+    box_size = 10, #size of the box where qr code will be displayed
+    border = 5 #it is the white part of image -- border in all 4 sides with what color
+)
+
+data = "https://practice.geeksforgeeks.org/courses/complete-interview-preparation?source=google&medium=cpc&device=c&keyword=gfg&matchtype=b&campaignid=2031157862&adgroup=71863555916&gclid=CjwKCAjwoduRBhA4EiwACL5RPw1FcSQKRfXlb9YoavTKJIgi_0DYFuCsYVNvH-aW5WM3_EPQe6YMnRoCQ3QQAvD_BwE"
+#you can put anything in data whichever you have to show after scanning qr code
+qr.add_data(data)
+qr.make(fit = True)
+img = qr.make_image(fill="black",back_color = "white")
+img.save("test.png")
